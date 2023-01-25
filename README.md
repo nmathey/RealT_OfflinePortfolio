@@ -62,5 +62,7 @@ I'm not a dev so forgive the quick and dirty style ;)
 Thanks to RealT Dev community espacially those behind the API
 
 For more information about RealT: https://realt.co/
+
 If you want to signup, here is my referral link **https://realt.co/ref/nmathey/**
+
 If you want to donate/support me, any ERC20 token transfer to the following Etherum/Gnosis address will be appreciated: 0xEFf0d54e391C6097CdF24A3Fc450988Ebd9a91F7
