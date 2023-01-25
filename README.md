@@ -1,6 +1,6 @@
 
 # RealT_OfflinePortfolio
-Consolidate an offline version of an offline version of your RealT portfolio
+Consolidate an offline version of your RealT properties portfolio
 
 ***This is a work in progress / sandbox personnal development***
 I'm not a dev so forgive the quick and dirty style ;)
