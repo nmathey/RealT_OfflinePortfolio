@@ -15,9 +15,10 @@ I'm not a dev so forgive the quick and dirty style ;)
 ## **Current usage**
 
 ***Step 1 - Syncing RealT Token transaction to/from your wallet - MyRealT_PortfolioOffline_TxUpdate.py***:
- 1) Provide your own Gnosis wallet address where your RealT Token are stored  via "MyWallet_Gnosis_address" variable
- 2) Provide your own RealT API Key via "MyRealT_API_Token" variable
- 3) Run MyRealT_PortfolioOffline_TxUpdate.py and make a wish
+ 1) Copy the file `secrets.py.example` to `secrets.py`
+ 2) In `secrets.py`, replace variables with your own Gnosis wallet address where your RealT Token are stored
+ 3) In `secrets.py`, replace your own RealT API Key via "MyRealT_API_Token" variable
+ 4) Run MyRealT_PortfolioOffline_TxUpdate.py and make a wish
 
 ***Output: MyRealT_Portfolio_Tx.json***
 	 "Info" includes: 

@@ -5,9 +5,9 @@ import re
 from pathlib import Path
 from datetime import datetime
 
+from secrets import MyRealT_API_Token, MyWallet_Gnosis_address
+
 MyRealT_Portfolio_Path = Path('MyRealT_Portfolio_Tx.json')
-MyWallet_Gnosis_address = 'YOUR_OWN_REALT_PROPERTIESTOKEN_WALLET_ADDRESS'
-MyRealT_API_Token = 'YOUR_OWN_REALT_API_TOKEN_KEY'
 
 Gnosis_API_TokenTx_URI = 'https://blockscout.com/xdai/mainnet/api?module=account&action=tokentx&address='
 RealT_API_URI = 'https://api.realt.community/v1/token/'
