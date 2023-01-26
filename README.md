@@ -2,15 +2,15 @@
 # RealT_OfflinePortfolio
 Consolidate an offline version of your RealT properties portfolio
 
-***This is a work in progress / sandbox personnal development***
+***This is a work in progress / sandbox personal development***
 I'm not a dev so forgive the quick and dirty style ;)
 
-## **Current limitations/requierements**
+## **Current limitations/requirements**
 
  * Gnosis network only
  * Need a RealT API key
  * If Token not found in RealT API, exiting without updating transactions JSON file
- * Need to manually update purchase/sell for each new transactiosn price once transactions JSON file generated/updated
+ * Need to manually update purchase/sell for each new transaction price once transactions JSON file generated/updated
 
 ## **Current usage**
 
@@ -59,10 +59,10 @@ I'm not a dev so forgive the quick and dirty style ;)
  - InvestValue
  - Currency
 
-Thanks to RealT Dev community espacially those behind the API
+Thanks to RealT Dev community especially those behind the API
 
 For more information about RealT: https://realt.co/
 
 If you want to signup, here is my referral link **https://realt.co/ref/nmathey/**
 
-If you want to donate/support me, any ERC20 token transfer to the following Etherum/Gnosis address will be appreciated: 0xEFf0d54e391C6097CdF24A3Fc450988Ebd9a91F7
+If you want to donate/support me, any ERC20 token transfer to the following Ethereum/Gnosis address will be appreciated: 0xEFf0d54e391C6097CdF24A3Fc450988Ebd9a91F7
