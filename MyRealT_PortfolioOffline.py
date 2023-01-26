@@ -6,7 +6,7 @@ from datetime import datetime
 
 MyRealT_Portfolio_Path = Path('MyRealT_PortfolioOffline.json')
 MyRealT_Portfolio_Tx_Path = Path('MyRealT_Portfolio_Tx.json')
-MyRealT_API_Token = 'YOUR_OWN_REALT_API_TOKEN_KEY'
+MyRealT_API_Token = '10da8fa6-preprod-15d6-7917-70f9d4d6bef5'
 
 RealT_API_URI = 'https://api.realt.community/v1/token/'
 MyRealT_API_Header = {
@@ -58,13 +58,13 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
     ).json()
 
     for Tx_item in MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx']:
+        Tx_Cost = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['cost'])
+        Tx_Amount = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['amount'])
+        Tx_TPrice = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['tokenPrice'])
+        Tk_Costs = Tk_Costs + (Tx_Cost * Tx_Amount)
+        Tk_Amounts = Tk_Amounts + Tx_Amount
+        
         if float(Tx_item) > float(LastSync):
-            Tx_Cost = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['cost'])
-            Tx_Amount = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['amount'])
-            Tx_TPrice = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['tokenPrice'])
-            Tk_Costs = Tk_Costs + (Tx_Cost * Tx_Amount)
-            Tk_Amounts = Tk_Amounts + Tx_Amount
-
             if str(Tx_item) in MyRealT_Portfolio['info']['investment_history']:
                 print("Updating invest history")
                 New_Hist_Invest = float(MyRealT_Portfolio['info']['investment_history'][str(Tx_item)]) + (Tx_Cost * Tx_Amount)
