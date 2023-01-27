@@ -15,6 +15,7 @@ MyRealT_API_Header = {
     'X_AUTH_REALT_TOKEN': MyRealT_API_Token
 }
 
+
 Now_Time = datetime.today()
 print(datetime.timestamp(Now_Time))
 
@@ -58,37 +59,34 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
     ).json()
 
     for Tx_item in MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx']:
-        if MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['cost'] is not None:
-            Tx_Cost = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['cost'])
-            Tx_Amount = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['amount'])
-            Tx_TPrice = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['tokenPrice'])
-            Tk_Costs = Tk_Costs + (Tx_Cost * Tx_Amount)
-            Tk_Amounts = Tk_Amounts + Tx_Amount
+        Tx_Cost = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['cost'])
+        Tx_Amount = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['amount'])
+        Tx_TPrice = float(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['tokenPrice'])
+        Tk_Costs = Tk_Costs + (Tx_Cost * Tx_Amount)
+        Tk_Amounts = Tk_Amounts + Tx_Amount
 
-            if float(Tx_item) > float(LastSync):
-                if str(Tx_item) in MyRealT_Portfolio['info']['investment_history']:
-                    print("Updating invest history")
-                    New_Hist_Invest = float(MyRealT_Portfolio['info']['investment_history'][str(Tx_item)]) + (Tx_Cost * Tx_Amount)
-                    print(float(MyRealT_Portfolio['info']['investment_history'][str(Tx_item)]) + (Tx_Cost * Tx_Amount))
-                else:
-                    print("New invest history")
-                    New_Hist_Invest = (Tx_Cost * Tx_Amount)
-                MyRealT_Portfolio['info']['investment_history'].update({str(Tx_item): New_Hist_Invest})
+        if float(Tx_item) > float(LastSync):
+            if str(Tx_item) in MyRealT_Portfolio['info']['investment_history']:
+                print("Updating invest history")
+                New_Hist_Invest = float(MyRealT_Portfolio['info']['investment_history'][str(Tx_item)]) + (Tx_Cost * Tx_Amount)
+                print(float(MyRealT_Portfolio['info']['investment_history'][str(Tx_item)]) + (Tx_Cost * Tx_Amount))
+            else:
+                print("New invest history")
+                New_Hist_Invest = (Tx_Cost * Tx_Amount)
+            MyRealT_Portfolio['info']['investment_history'].update({str(Tx_item): New_Hist_Invest})
 
-                if str(Tx_item) in MyRealT_Portfolio['info']['amount_history']:
-                    New_Hist_Amount = float(MyRealT_Portfolio['info']['amount_history'][str(Tx_item)]) + Tx_Amount
-                else:
-                    New_Hist_Amount = Tx_Amount
-                MyRealT_Portfolio['info']['amount_history'].update({str(Tx_item): New_Hist_Amount})
+            if str(Tx_item) in MyRealT_Portfolio['info']['amount_history']:
+                New_Hist_Amount = float(MyRealT_Portfolio['info']['amount_history'][str(Tx_item)]) + Tx_Amount
+            else:
+                New_Hist_Amount = Tx_Amount
+            MyRealT_Portfolio['info']['amount_history'].update({str(Tx_item): New_Hist_Amount})
 
-                if str(Tx_item) in MyRealT_Portfolio['info']['valuation_history']:
-                    New_Hist_Valuation = float(MyRealT_Portfolio['info']['valuation_history'][str(Tx_item)]) + (Tx_Amount * Tx_TPrice)
-                else:
-                    New_Hist_Valuation = (Tx_Amount * Tx_TPrice)
-                MyRealT_Portfolio['info']['valuation_history'].update({str(Tx_item): New_Hist_Valuation})
-        else:
-            exit("At least one transaction cost is missing")
-            
+            if str(Tx_item) in MyRealT_Portfolio['info']['valuation_history']:
+                New_Hist_Valuation = float(MyRealT_Portfolio['info']['valuation_history'][str(Tx_item)]) + (Tx_Amount * Tx_TPrice)
+            else:
+                New_Hist_Valuation = (Tx_Amount * Tx_TPrice)
+            MyRealT_Portfolio['info']['valuation_history'].update({str(Tx_item): New_Hist_Valuation})
+
     my_dict = {
         MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ContractAddress']: {
             'Fullname': MyRealT_Portfolio_Tx['data'][str(Tk_item)]['FullName'],
@@ -119,21 +117,21 @@ for i in MyRealT_Portfolio['info']['valuation_history']:
     if float(i) > float(LastSync):
         Valuation_History_Acc = Valuation_History_Acc + float(MyRealT_Portfolio['info']['valuation_history'][i])
         MyRealT_Portfolio['info']['valuation_history'][i] = Valuation_History_Acc
-#print(MyRealT_Portfolio['info']['valuation_history'])
+print(MyRealT_Portfolio['info']['valuation_history'])
 
 for i in MyRealT_Portfolio['info']['investment_history']:
     if float(i) > float(LastSync):
         Invest_History_Acc = Invest_History_Acc + float(MyRealT_Portfolio['info']['investment_history'][i])
         MyRealT_Portfolio['info']['investment_history'][i] = Invest_History_Acc
-#print(MyRealT_Portfolio['info']['investment_history'])
+print(MyRealT_Portfolio['info']['investment_history'])
 
 for i in MyRealT_Portfolio['info']['amount_history']:
     if float(i) > float(LastSync):
         Amount_History_Acc = Amount_History_Acc + float(MyRealT_Portfolio['info']['amount_history'][i])
         MyRealT_Portfolio['info']['amount_history'][i] = Amount_History_Acc
-#print(MyRealT_Portfolio['info']['amount_history'])
+print(MyRealT_Portfolio['info']['amount_history'])
 
-#MyRealT_Portfolio['info']['last_Tx']=list(MyRealT_Portfolio['info']['amount_history'].keys())[-1]
+MyRealT_Portfolio['info']['last_Tx']=list(MyRealT_Portfolio['info']['amount_history'].keys())[-1]
 
 with open(MyRealT_Portfolio_Path, 'w') as outfile:
     json.dump(MyRealT_Portfolio, outfile, indent=4)

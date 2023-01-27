@@ -3,3 +3,4 @@ MyRealT_Portfolio_Tx.json
 MyRealT_PortfolioOffline.json
 secrets.py
 __pycache__/
+*.bak
