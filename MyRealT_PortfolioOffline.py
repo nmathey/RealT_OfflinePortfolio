@@ -104,7 +104,7 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
     }
     MyRealT_Portfolio['data'].update(my_dict)
 
-#Chronologicaly order histories and cumulating overtime
+# Chronologicaly order histories and cumulating overtime
 MyRealT_Portfolio['info']['valuation_history'] = {i: MyRealT_Portfolio['info']['valuation_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
 MyRealT_Portfolio['info']['amount_history'] = {i: MyRealT_Portfolio['info']['amount_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
 MyRealT_Portfolio['info']['investment_history'] = {i: MyRealT_Portfolio['info']['investment_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
@@ -132,21 +132,33 @@ for i in MyRealT_Portfolio['info']['amount_history']:
         Amount_History_Acc = Amount_History_Acc + float(MyRealT_Portfolio['info']['amount_history'][i])
         MyRealT_Portfolio['info']['amount_history'][i] = Amount_History_Acc
 
-#MyRealT_Portfolio['info']['last_Tx']=list(MyRealT_Portfolio['info']['amount_history'].keys())[-1]
+# MyRealT_Portfolio['info']['last_Tx']=list(MyRealT_Portfolio['info']['amount_history'].keys())[-1]
 
-#Graphing histories overtime
+# Graphing histories overtime
 df = pd.DataFrame()
 fig = make_subplots(specs=[[{"secondary_y": True}]])
 fig.add_trace(
-    go.Scatter(x = [datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['amount_history'].keys())], y = list(MyRealT_Portfolio['info']['amount_history'].values()), name="# of token"),
+    go.Scatter(
+        x=[datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['amount_history'].keys())],
+        y=list(MyRealT_Portfolio['info']['amount_history'].values()),
+        name="# of token"
+    ),
     secondary_y=True,
 )
 fig.add_trace(
-    go.Scatter(x = [datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['investment_history'].keys())], y = list(MyRealT_Portfolio['info']['investment_history'].values()), name="Invested"),
+    go.Scatter(
+        x=[datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['investment_history'].keys())],
+        y=list(MyRealT_Portfolio['info']['investment_history'].values()),
+        name="Invested"
+    ),
     secondary_y=False,
 )
 fig.add_trace(
-    go.Scatter(x = [datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['valuation_history'].keys())], y = list(MyRealT_Portfolio['info']['valuation_history'].values()), name="Valuation"),
+    go.Scatter(
+        x=[datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['valuation_history'].keys())],
+        y=list(MyRealT_Portfolio['info']['valuation_history'].values()),
+        name="Valuation"
+    ),
     secondary_y=False,
 )
 fig.update_layout(
@@ -155,7 +167,7 @@ fig.update_layout(
 fig.update_xaxes(title_text="Date")
 fig.update_yaxes(title_text="Value", secondary_y=False)
 fig.update_yaxes(title_text="Tk amount", secondary_y=True)
-#fig.show()
+# fig.show()
 fig.write_html('MyRealT_OfflinePortfolio.html', auto_open=True)
 
 with open(MyRealT_Portfolio_Path, 'w') as outfile:
