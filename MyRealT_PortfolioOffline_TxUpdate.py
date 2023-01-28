@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-from secrets import MyRealT_API_Token, MyWallet_Gnosis_address
+from MySecrets import MyRealT_API_Token, MyWallet_Gnosis_address
 
 MyRealT_Portfolio_Path = Path('MyRealT_Portfolio_Tx.json')
 

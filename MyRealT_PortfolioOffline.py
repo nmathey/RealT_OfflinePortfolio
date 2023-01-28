@@ -3,8 +3,10 @@ import json
 from json.decoder import JSONDecodeError
 from pathlib import Path
 from datetime import datetime
-
-from secrets import MyRealT_API_Token
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import pandas as pd
+from MySecrets import MyRealT_API_Token
 
 MyRealT_Portfolio_Path = Path('MyRealT_PortfolioOffline.json')
 MyRealT_Portfolio_Tx_Path = Path('MyRealT_Portfolio_Tx.json')
@@ -102,7 +104,7 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
     }
     MyRealT_Portfolio['data'].update(my_dict)
 
-#ordonner les history puis les cumuler dans l'ordre chronologique
+#Chronologicaly order histories and cumulating overtime
 MyRealT_Portfolio['info']['valuation_history'] = {i: MyRealT_Portfolio['info']['valuation_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
 MyRealT_Portfolio['info']['amount_history'] = {i: MyRealT_Portfolio['info']['amount_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
 MyRealT_Portfolio['info']['investment_history'] = {i: MyRealT_Portfolio['info']['investment_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
@@ -119,21 +121,42 @@ for i in MyRealT_Portfolio['info']['valuation_history']:
     if float(i) > float(LastSync):
         Valuation_History_Acc = Valuation_History_Acc + float(MyRealT_Portfolio['info']['valuation_history'][i])
         MyRealT_Portfolio['info']['valuation_history'][i] = Valuation_History_Acc
-#print(MyRealT_Portfolio['info']['valuation_history'])
 
 for i in MyRealT_Portfolio['info']['investment_history']:
     if float(i) > float(LastSync):
         Invest_History_Acc = Invest_History_Acc + float(MyRealT_Portfolio['info']['investment_history'][i])
         MyRealT_Portfolio['info']['investment_history'][i] = Invest_History_Acc
-#print(MyRealT_Portfolio['info']['investment_history'])
 
 for i in MyRealT_Portfolio['info']['amount_history']:
     if float(i) > float(LastSync):
         Amount_History_Acc = Amount_History_Acc + float(MyRealT_Portfolio['info']['amount_history'][i])
         MyRealT_Portfolio['info']['amount_history'][i] = Amount_History_Acc
-#print(MyRealT_Portfolio['info']['amount_history'])
 
 #MyRealT_Portfolio['info']['last_Tx']=list(MyRealT_Portfolio['info']['amount_history'].keys())[-1]
+
+#Graphing histories overtime
+df = pd.DataFrame()
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+fig.add_trace(
+    go.Scatter(x = [datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['amount_history'].keys())], y = list(MyRealT_Portfolio['info']['amount_history'].values()), name="# of token"),
+    secondary_y=True,
+)
+fig.add_trace(
+    go.Scatter(x = [datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['investment_history'].keys())], y = list(MyRealT_Portfolio['info']['investment_history'].values()), name="Invested"),
+    secondary_y=False,
+)
+fig.add_trace(
+    go.Scatter(x = [datetime.fromtimestamp(int(ts)).date() for ts in list(MyRealT_Portfolio['info']['valuation_history'].keys())], y = list(MyRealT_Portfolio['info']['valuation_history'].values()), name="Valuation"),
+    secondary_y=False,
+)
+fig.update_layout(
+    title_text="MyRealt portfolio evolution"
+)
+fig.update_xaxes(title_text="Date")
+fig.update_yaxes(title_text="Value", secondary_y=False)
+fig.update_yaxes(title_text="Tk amount", secondary_y=True)
+#fig.show()
+fig.write_html('MyRealT_OfflinePortfolio.html', auto_open=True)
 
 with open(MyRealT_Portfolio_Path, 'w') as outfile:
     json.dump(MyRealT_Portfolio, outfile, indent=4)
