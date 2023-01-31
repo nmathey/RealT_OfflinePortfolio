@@ -58,6 +58,8 @@ I'm not a dev so forgive the quick and dirty style ;)
  - CurrentTokenPrice
  - CurrentValue
  - InvestValue
+ - Current rented units percentage
+ - Current net rent percentage (Yield)
  - Currency
 
 Thanks to RealT Dev community especially those behind the API
