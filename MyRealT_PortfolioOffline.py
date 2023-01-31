@@ -6,7 +6,9 @@ from datetime import datetime
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
+from bs4 import BeautifulSoup
 from MySecrets import MyRealT_API_Token
+
 
 MyRealT_Portfolio_Path = Path('MyRealT_PortfolioOffline.json')
 MyRealT_Portfolio_Tx_Path = Path('MyRealT_Portfolio_Tx.json')
@@ -16,6 +18,8 @@ MyRealT_API_Header = {
     'Accept': '*/*',
     'X_AUTH_REALT_TOKEN': MyRealT_API_Token
 }
+
+RealT_TokenHistory_URI = 'https://www.cryptalloc.com/realtsoon/index.php?MODL=HIST&house='
 
 Now_Time = datetime.today()
 print(datetime.timestamp(Now_Time))
@@ -49,7 +53,7 @@ MyRealT_Portfolio_valuation = 0.0
 MyRealT_Portfolio_invest = 0.0
 MyRealT_Portfolio_New_Hist = {}
 
-print("Updating offline portfolio as of today from Tx file")
+print("Updating offline portfolio as of today from Tx file, RealT API & Cryptalloc/realtsoon website")
 for Tk_item in MyRealT_Portfolio_Tx.get('data'):
     Tk_Costs = 0.0
     Tk_Amounts = 0.0
@@ -90,21 +94,41 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
                 MyRealT_Portfolio['info']['valuation_history'].update({str(Tx_item): New_Hist_Valuation})
         else:
             exit("At least one transaction cost is missing")
-            
+
+   # Getting updates from https://www.cryptalloc.com/realtsoon/
+    TokenHistInfo = requests.get(RealT_TokenHistory_URI + str(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ShortName'])).content
+    currentRentedUnitsP = None
+    currentNetRentP = None
+    soup = BeautifulSoup(TokenHistInfo, "html.parser")
+    net_rent_p = soup.find('td', string='net_rent_p')
+    if net_rent_p.next_sibling.next_sibling is None:
+        currentNetRentP = net_rent_p.next_sibling.string
+    else:
+        currentNetRentP = net_rent_p.next_sibling.next_sibling.string
+    rented_units_p = soup.find('td', string='rented_units_p')
+    if rented_units_p.next_sibling.next_sibling is None:
+        currentRentedUnitsP = rented_units_p.next_sibling.string
+    else:
+        currentRentedUnitsP = rented_units_p.next_sibling.next_sibling.string
+
+    #Generating updated Token position
     my_dict = {
         MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ContractAddress']: {
             'Fullname': MyRealT_Portfolio_Tx['data'][str(Tk_item)]['FullName'],
+            'Shortname': MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ShortName'],
             'ContractAddress': MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ContractAddress'],
             'CurrentBalance': Tk_Amounts,
             'CurrentTokenPrice': TokenInfo['tokenPrice'],
             'CurrentValue': Tk_Amounts * float(TokenInfo['tokenPrice']),
             'InvestValue': Tk_Costs,
+            'CurrentRentedUnitsP': currentRentedUnitsP,
+            'CurrentNetRentP': currentNetRentP,
             'Currency': TokenInfo['currency']
         }
     }
     MyRealT_Portfolio['data'].update(my_dict)
 
-# Chronologicaly order histories and cumulating overtime
+# Chronologically order histories and cumulating overtime
 MyRealT_Portfolio['info']['valuation_history'] = {i: MyRealT_Portfolio['info']['valuation_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
 MyRealT_Portfolio['info']['amount_history'] = {i: MyRealT_Portfolio['info']['amount_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
 MyRealT_Portfolio['info']['investment_history'] = {i: MyRealT_Portfolio['info']['investment_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
