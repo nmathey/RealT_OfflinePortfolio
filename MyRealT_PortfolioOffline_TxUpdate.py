@@ -71,6 +71,15 @@ for item in MyTokenTxList_Gnosis.get('result'):
                 }
             )
         print("Updating Token " + str(item.get('contractAddress') + "with new Tx - " + str(item.get('blockNumber'))))
+        TokenInfoReq = requests.get(
+            RealT_API_URI + str(item.get('contractAddress')),
+            headers=MyRealT_API_Header
+        )
+
+        if TokenInfoReq.text == "[]":
+            exit("Token not found in API")
+
+        TokenInfo = TokenInfoReq.json()
         if str(item.get('to')) != MyWallet_Gnosis_address:
             MyRealT_Portfolio['data'][item.get('contractAddress')]['TokenTx'].update(
                 {
