@@ -42,10 +42,10 @@ if MyRealT_Portfolio['info']['last_blockNumber'] is None:
 else:
     MyTokenTxList_Gnosis = json.loads(requests.get(Gnosis_API_TokenTx_URI + MyWallet_Gnosis_address + '&sort=asc&start_block=' + str(int(MyRealT_Portfolio['info']['last_blockNumber'])+1)).text)
 
+previous_token_contract = None
 for item in MyTokenTxList_Gnosis.get('result'):
-    if re.match(r'^RealToken', str(item.get('tokenName'))):
-        MyRealT_Portfolio['info']['last_blockNumber'] = item.get('blockNumber')
-        if item.get('contractAddress') not in MyRealT_Portfolio['data']:
+    if re.match(r'^REALTOKEN', str(item.get('tokenSymbol'))) or re.match(r'^armmREALTOKEN',str(item.get('tokenSymbol'))):
+        if item.get('contractAddress') not in MyRealT_Portfolio['data'] and not re.match(r'^armmREALTOKEN',str(item.get('tokenSymbol'))):
             print("New token detected on online wallet: adding token to offline portfolio: " + item.get('contractAddress'))
             TokenInfoReq = requests.get(
                 RealT_API_URI + str(item.get('contractAddress')),
@@ -93,17 +93,23 @@ for item in MyTokenTxList_Gnosis.get('result'):
                 }
             )
         else:
-            MyRealT_Portfolio['data'][item.get('contractAddress')]['TokenTx'].update(
-                {
-                    item.get('timeStamp'):
-                        {
-                            'amount': float(item.get('value')) / pow(10, int(item.get('tokenDecimal'))),
-                            'cost': None,
-                            'tokenPrice': TokenInfo['tokenPrice'],
-                            'currency': "USD"
-                        }
-                }
-            )
+            if MyRealT_Portfolio['info']['last_blockNumber'] == item.get('blockNumber') and re.match(r'^armmREALTOKEN', str(item.get('tokenSymbol'))):
+                #deleting last tokentx wich looks RMM related
+                del MyRealT_Portfolio['data'][previous_token_contract]['TokenTx'][item.get('timeStamp')]
+            else:
+                MyRealT_Portfolio['data'][item.get('contractAddress')]['TokenTx'].update(
+                    {
+                        item.get('timeStamp'):
+                            {
+                                'amount': float(item.get('value')) / pow(10, int(item.get('tokenDecimal'))),
+                                'cost': None,
+                                'tokenPrice': TokenInfo['tokenPrice'],
+                                'currency': "USD"
+                            }
+                    }
+                )
+        MyRealT_Portfolio['info']['last_blockNumber'] = item.get('blockNumber')
+        previous_token_contract = item.get('contractAddress')
 #print(MyRealT_Portfolio.get('data'))
 with open(MyRealT_Portfolio_Path, 'w') as outfile:
     json.dump(MyRealT_Portfolio, outfile, indent=4)
