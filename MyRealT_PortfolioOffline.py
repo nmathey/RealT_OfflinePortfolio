@@ -192,7 +192,7 @@ fig.update_xaxes(title_text="Date")
 fig.update_yaxes(title_text="Value", secondary_y=False)
 fig.update_yaxes(title_text="Tk amount", secondary_y=True)
 # fig.show()
-fig.write_html('MyRealT_OfflinePortfolio.html', auto_open=True)
+fig.write_html('MyRealT_OfflinePortfolio.html')
 
 with open(MyRealT_Portfolio_Path, 'w') as outfile:
     json.dump(MyRealT_Portfolio, outfile, indent=4)

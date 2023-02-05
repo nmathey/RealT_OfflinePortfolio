@@ -1,0 +1,611 @@
+{
+    "info": {
+        "last_sync": "1675146422.897546",
+        "last_blockNumber": "26116468",
+        "valuation_history": {}
+    },
+    "data": {
+        "0x2fb7eeeece8498af2bf5b00ea29ca03005c35956": {
+            "FullName": "1389 Bird Ave, Birmingham, MI 48009",
+            "ShortName": "1389 Bird",
+            "Symbol": "REALTOKEN-S-1389-BIRD-AVE-BIRMINGHAM-MI",
+            "ContractAddress": "0x2fb7eeeece8498af2bf5b00ea29ca03005c35956",
+            "CurrentTokenPrice": 50.29,
+            "Currency": "USD",
+            "TokenTx": {
+                "1641856770": {
+                    "amount": 1.0,
+                    "cost": 50.29,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                },
+                "1644860630": {
+                    "amount": 0.001994,
+                    "cost": 0.0,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                },
+                "1645472395": {
+                    "amount": 0.001997,
+                    "cost": 0.0,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                },
+                "1646064895": {
+                    "amount": 0.002,
+                    "cost": 0.0,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                },
+                "1646678000": {
+                    "amount": 0.002003,
+                    "cost": 0.0,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                },
+                "1647294385": {
+                    "amount": 0.001757,
+                    "cost": 0.0,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xcfe61eff2cde5c5885ba3a649ab092f56bd2830f": {
+            "FullName": "3747 Scovel Pl, Detroit, MI 48208",
+            "ShortName": "3747 Scovel",
+            "Symbol": "REALTOKEN-S-3747-SCOVEL-PL-DETROIT-MI",
+            "ContractAddress": "0xcfe61eff2cde5c5885ba3a649ab092f56bd2830f",
+            "CurrentTokenPrice": 50.19,
+            "Currency": "USD",
+            "TokenTx": {
+                "1641856910": {
+                    "amount": 1.0,
+                    "cost": 50.19,
+                    "tokenPrice": 50.19,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x062c208073c9b439d1973262cfe0ddd88f38afa8": {
+            "FullName": "19268 Eureka St, Detroit, MI 48234",
+            "ShortName": "19268 Eureka",
+            "Symbol": "REALTOKEN-S-19268-EUREKA-ST-DETROIT-MI",
+            "ContractAddress": "0x062c208073c9b439d1973262cfe0ddd88f38afa8",
+            "CurrentTokenPrice": 49.71,
+            "Currency": "USD",
+            "TokenTx": {
+                "1643635475": {
+                    "amount": 0.000556,
+                    "cost": 0.0,
+                    "tokenPrice": 49.71,
+                    "currency": "USD"
+                },
+                "1644259230": {
+                    "amount": 0.001394,
+                    "cost": 0.0,
+                    "tokenPrice": 49.71,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xee2dacc1e9264cbcb19c46863373fbff4ba7a9bd": {
+            "FullName": "4342-4344 Cortland St, Detroit, MI 48204",
+            "ShortName": "4342-4344 Cortland",
+            "Symbol": "REALTOKEN-S-4342-4344-CORTLAND-ST-DETROIT-MI",
+            "ContractAddress": "0xee2dacc1e9264cbcb19c46863373fbff4ba7a9bd",
+            "CurrentTokenPrice": 50.63,
+            "Currency": "USD",
+            "TokenTx": {
+                "1648470860": {
+                    "amount": 0.001995,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                },
+                "1649084090": {
+                    "amount": 0.001995,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                },
+                "1649693610": {
+                    "amount": 0.001995,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                },
+                "1650366670": {
+                    "amount": 0.002,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                },
+                "1650909765": {
+                    "amount": 0.002012,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                },
+                "1651510295": {
+                    "amount": 0.00099,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x2089b1b815a2fd0187a48a1c66c511da828a8128": {
+            "FullName": "3310-3312 Sturtevant St, Detroit, MI 48206",
+            "ShortName": "3310-3312 Sturtevant",
+            "Symbol": "REALTOKEN-S-3310-3312-STURTEVANT-ST-DETROIT-MI",
+            "ContractAddress": "0x2089b1b815a2fd0187a48a1c66c511da828a8128",
+            "CurrentTokenPrice": 49.12,
+            "Currency": "USD",
+            "TokenTx": {
+                "1653918360": {
+                    "amount": 0.002329,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                },
+                "1654527395": {
+                    "amount": 0.002329,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                },
+                "1655151445": {
+                    "amount": 0.001258,
+                    "cost": 0.0,
+                    "tokenPrice": 50.63,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x03cbe3dda83908ad48643d6a1b5b13d11acaf845": {
+            "FullName": "324 Piper Blvd, Detroit, MI 48215",
+            "ShortName": "324 Piper",
+            "Symbol": "REALTOKEN-S-324-PIPER-BLVD-DETROIT-MI",
+            "ContractAddress": "0x03cbe3dda83908ad48643d6a1b5b13d11acaf845",
+            "CurrentTokenPrice": 49.59,
+            "Currency": "USD",
+            "TokenTx": {
+                "1655794630": {
+                    "amount": 0.002316,
+                    "cost": 0.0,
+                    "tokenPrice": 49.59,
+                    "currency": "USD"
+                },
+                "1656341935": {
+                    "amount": 0.002319,
+                    "cost": 0.0,
+                    "tokenPrice": 49.59,
+                    "currency": "USD"
+                },
+                "1656945185": {
+                    "amount": 0.002319,
+                    "cost": 0.0,
+                    "tokenPrice": 49.59,
+                    "currency": "USD"
+                },
+                "1657568585": {
+                    "amount": 0.002333,
+                    "cost": 0.0,
+                    "tokenPrice": 49.59,
+                    "currency": "USD"
+                },
+                "1658154440": {
+                    "amount": 0.002823,
+                    "cost": 0.0,
+                    "tokenPrice": 49.59,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x7a684f6d9a34175d642eedb31fa545604d8d3acf": {
+            "FullName": "2911 Sturtevant St, Detroit, MI 48206",
+            "ShortName": "2911 Sturtevant",
+            "Symbol": "REALTOKEN-S-2911-STURTEVANT-ST-DETROIT-MI",
+            "ContractAddress": "0x7a684f6d9a34175d642eedb31fa545604d8d3acf",
+            "CurrentTokenPrice": 50.62,
+            "Currency": "USD",
+            "TokenTx": {
+                "1655970870": {
+                    "amount": 2.0,
+                    "cost": 50.62,
+                    "tokenPrice": 50.62,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xe2fbdeadc82c71c1b8bff9ca4f9e7666224a362c": {
+            "FullName": "16085 E Seven Mile, Detroit, MI 48205",
+            "ShortName": "16085 E Seven Mile",
+            "Symbol": "REALTOKEN-S-16085-E-SEVEN-MILE-DETROIT-MI",
+            "ContractAddress": "0xe2fbdeadc82c71c1b8bff9ca4f9e7666224a362c",
+            "CurrentTokenPrice": 50.23,
+            "Currency": "USD",
+            "TokenTx": {
+                "1655970890": {
+                    "amount": 2.0,
+                    "cost": 50.23,
+                    "tokenPrice": 50.23,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x5b571d103e670848ce8cde37f93821c9c93c7c43": {
+            "FullName": "14409 Linnhurst St, Detroit, MI 48205",
+            "ShortName": "14409 Linnhurst",
+            "Symbol": "REALTOKEN-S-14409-LINNHURST-ST-DETROIT-MI",
+            "ContractAddress": "0x5b571d103e670848ce8cde37f93821c9c93c7c43",
+            "CurrentTokenPrice": 50.16,
+            "Currency": "USD",
+            "TokenTx": {
+                "1656059925": {
+                    "amount": 2.0,
+                    "cost": 50.16,
+                    "tokenPrice": 50.16,
+                    "currency": "USD"
+                },
+                "1658497355": {
+                    "amount": 2.0,
+                    "cost": 50.16,
+                    "tokenPrice": 50.16,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x6f5258feb5862b661829315841b0718d6e56ca2c": {
+            "FullName": "20257 Monica St, Detroit, MI 48221",
+            "ShortName": "20257 Monica",
+            "Symbol": "RealToken S 20257 Monica St Detroit MI",
+            "ContractAddress": "0x6f5258feb5862b661829315841b0718d6e56ca2c",
+            "CurrentTokenPrice": 49.84,
+            "Currency": "USD",
+            "TokenTx": {
+                "1659362430": {
+                    "amount": 0.018039,
+                    "cost": 0.0,
+                    "tokenPrice": 49.84,
+                    "currency": "USD"
+                },
+                "1659967655": {
+                    "amount": 0.012068,
+                    "cost": 0.0,
+                    "tokenPrice": 49.84,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x7909090541d646a262a3062639298772a2c79daa": {
+            "FullName": "S 3510 Ewald Cir, Detroit, MI 48204",
+            "ShortName": "S 3510 Ewald",
+            "Symbol": "REALTOKEN-S-3510-EWALD-CIR-DETROIT-MI",
+            "ContractAddress": "0x7909090541d646a262a3062639298772a2c79daa",
+            "CurrentTokenPrice": 50.09,
+            "Currency": "USD",
+            "TokenTx": {
+                "1659779170": {
+                    "amount": 3.0,
+                    "cost": 50.09,
+                    "tokenPrice": 50.09,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x3839ab8550a64940964e0ecb02ed301005a96ffc": {
+            "FullName": "18980 Fenton St, Detroit, MI 48219",
+            "ShortName": "18980 Fenton",
+            "Symbol": "REALTOKEN-S-18980-FENTON-ST-DETROIT-MI",
+            "ContractAddress": "0x3839ab8550a64940964e0ecb02ed301005a96ffc",
+            "CurrentTokenPrice": 50.25,
+            "Currency": "USD",
+            "TokenTx": {
+                "1660350435": {
+                    "amount": 1.0,
+                    "cost": 50.25,
+                    "tokenPrice": 50.25,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xc1c1031e4a44b98707203480029e6576cb3267e3": {
+            "FullName": "11898 Laing St, Detroit, MI 48224",
+            "ShortName": "11898 Laing",
+            "Symbol": "RealToken S 11898 Laing St Detroit MI",
+            "ContractAddress": "0xc1c1031e4a44b98707203480029e6576cb3267e3",
+            "CurrentTokenPrice": 49.42,
+            "Currency": "USD",
+            "TokenTx": {
+                "1661205395": {
+                    "amount": 0.020421,
+                    "cost": 0.0,
+                    "tokenPrice": 49.42,
+                    "currency": "USD"
+                },
+                "1661769385": {
+                    "amount": 0.003302,
+                    "cost": 0.0,
+                    "tokenPrice": 49.42,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xa984e4c759bea433bef9239736d5f9a9af0e7389": {
+            "FullName": "S 10703 McKinney St, Detroit, MI 48224",
+            "ShortName": "S 10703 McKinney",
+            "Symbol": "REALTOKEN-S-10703-MCKINNEY-ST-DETROIT-MI",
+            "ContractAddress": "0xa984e4c759bea433bef9239736d5f9a9af0e7389",
+            "CurrentTokenPrice": 49.79,
+            "Currency": "USD",
+            "TokenTx": {
+                "1661779270": {
+                    "amount": 0.017033,
+                    "cost": 0.0,
+                    "tokenPrice": 49.79,
+                    "currency": "USD"
+                },
+                "1662392410": {
+                    "amount": 0.023788,
+                    "cost": 0.0,
+                    "tokenPrice": 49.79,
+                    "currency": "USD"
+                },
+                "1663028250": {
+                    "amount": 0.007,
+                    "cost": 0.0,
+                    "tokenPrice": 49.79,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xb80173756781960761aa59c9eeebe191f049f4c8": {
+            "FullName": "S 19391 Grandview St, Detroit, MI 48219",
+            "ShortName": "S 19391 Grandview",
+            "Symbol": "REALTOKEN-S-19391-GRANDVIEW-ST-DETROIT-MI",
+            "ContractAddress": "0xb80173756781960761aa59c9eeebe191f049f4c8",
+            "CurrentTokenPrice": 50.19,
+            "Currency": "USD",
+            "TokenTx": {
+                "1663028275": {
+                    "amount": 0.019241,
+                    "cost": 0.0,
+                    "tokenPrice": 50.19,
+                    "currency": "USD"
+                },
+                "1663632100": {
+                    "amount": 0.026186,
+                    "cost": 0.0,
+                    "tokenPrice": 50.19,
+                    "currency": "USD"
+                },
+                "1664218690": {
+                    "amount": 0.000544,
+                    "cost": 0.0,
+                    "tokenPrice": 50.19,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x27c30545dc2ba4b3bfdcb9f807a0214f4b06f034": {
+            "FullName": "8003 S Ingleside Ave, Chicago, IL 60619",
+            "ShortName": "8003 S Ingleside",
+            "Symbol": "REALTOKEN-S-8003-S-INGLESIDE-AVE-CHICAGO-IL",
+            "ContractAddress": "0x27c30545dc2ba4b3bfdcb9f807a0214f4b06f034",
+            "CurrentTokenPrice": 50.64,
+            "Currency": "USD",
+            "TokenTx": {
+                "1664838670": {
+                    "amount": 1.0,
+                    "cost": 50.64,
+                    "tokenPrice": 50.64,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xa12a334f563c1a9fef29cf11fac7e148fd54463b": {
+            "FullName": "11830 Camden Ave, Detroit, MI 48213",
+            "ShortName": "11830 Camden",
+            "Symbol": "REALTOKEN-S-11830-CAMDEN-AVE-DETROIT-MI",
+            "ContractAddress": "0xa12a334f563c1a9fef29cf11fac7e148fd54463b",
+            "CurrentTokenPrice": 47.43,
+            "Currency": "USD",
+            "TokenTx": {
+                "1669076675": {
+                    "amount": 0.029504,
+                    "cost": 0.0,
+                    "tokenPrice": 47.43,
+                    "currency": "USD"
+                },
+                "1669676300": {
+                    "amount": 0.024145,
+                    "cost": 0.0,
+                    "tokenPrice": 47.43,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x9642a2379bc359c8b10ead2e06c4a4156bbb3f57": {
+            "FullName": "14745 Plymouth Rd, Detroit, MI 48227",
+            "ShortName": "14745 Plymouth",
+            "Symbol": "REALTOKEN-S-14745-PLYMOUTH-RD-DETROIT-MI",
+            "ContractAddress": "0x9642a2379bc359c8b10ead2e06c4a4156bbb3f57",
+            "CurrentTokenPrice": 48.56,
+            "Currency": "USD",
+            "TokenTx": {
+                "1670029860": {
+                    "amount": 2.0,
+                    "cost": 48.56,
+                    "tokenPrice": 48.56,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xd67ba795ca466a85be46b13763adcb729be49a82": {
+            "FullName": "11845 Camden Ave, Detroit, MI 48213",
+            "ShortName": "11845 Camden",
+            "Symbol": "REALTOKEN-S-11845-CAMDEN-AVE-DETROIT-MI",
+            "ContractAddress": "0xd67ba795ca466a85be46b13763adcb729be49a82",
+            "CurrentTokenPrice": 48.32,
+            "Currency": "USD",
+            "TokenTx": {
+                "1670286260": {
+                    "amount": 0.028961,
+                    "cost": 0.0,
+                    "tokenPrice": 48.32,
+                    "currency": "USD"
+                },
+                "1670888780": {
+                    "amount": 0.028961,
+                    "cost": 0.0,
+                    "tokenPrice": 48.32,
+                    "currency": "USD"
+                },
+                "1671525940": {
+                    "amount": 0.000819,
+                    "cost": 0.0,
+                    "tokenPrice": 48.32,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xd79e63912dbeb409ea350138503a9eb29d73728f": {
+            "FullName": "10862 Marne St, Detroit, MI 48224",
+            "ShortName": "10862 Marne",
+            "Symbol": "REALTOKEN-S-10862-MARNE-ST-DETROIT-MI",
+            "ContractAddress": "0xd79e63912dbeb409ea350138503a9eb29d73728f",
+            "CurrentTokenPrice": 50.29,
+            "Currency": "USD",
+            "TokenTx": {
+                "1671525965": {
+                    "amount": 0.027159,
+                    "cost": 0.0,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                },
+                "1672095885": {
+                    "amount": 0.028037,
+                    "cost": 0.0,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                },
+                "1672707580": {
+                    "amount": 0.006655,
+                    "cost": 0.0,
+                    "tokenPrice": 50.29,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x954f393ff46da9cfc07a9052d7c669710cf48ed4": {
+            "FullName": "305 Moss St, Highland Park, MI 48203",
+            "ShortName": "305 Moss",
+            "Symbol": "REALTOKEN-S-305-MOSS-ST-HIGHLAND-PARK-MI",
+            "ContractAddress": "0x954f393ff46da9cfc07a9052d7c669710cf48ed4",
+            "CurrentTokenPrice": 55.56,
+            "Currency": "USD",
+            "TokenTx": {
+                "1672764570": {
+                    "amount": 0.015728,
+                    "cost": 0.0,
+                    "tokenPrice": 55.56,
+                    "currency": "USD"
+                },
+                "1673306855": {
+                    "amount": 0.032837,
+                    "cost": 0.0,
+                    "tokenPrice": 55.56,
+                    "currency": "USD"
+                },
+                "1673918385": {
+                    "amount": 0.020551,
+                    "cost": 0.0,
+                    "tokenPrice": 55.56,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0xa6231a14bdb99ba817c211558fa8ebb2a74b959a": {
+            "FullName": "7501 Stockton St, Detroit, MI 48234",
+            "ShortName": "7501 Stockton",
+            "Symbol": "REALTOKEN-S-7501-STOCKTON-ST-DETROIT-MI",
+            "ContractAddress": "0xa6231a14bdb99ba817c211558fa8ebb2a74b959a",
+            "CurrentTokenPrice": 50.51,
+            "Currency": "USD",
+            "TokenTx": {
+                "1673106085": {
+                    "amount": 2.0,
+                    "cost": 50.51,
+                    "tokenPrice": 50.51,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x3ac16e7177a55d5fd8f8ab58263d1c764d462fde": {
+            "FullName": "4239 Alter Rd, Detroit, MI 48215",
+            "ShortName": "4239 Alter",
+            "Symbol": "REALTOKEN-S-4239-ALTER-RD-DETROIT-MI",
+            "ContractAddress": "0x3ac16e7177a55d5fd8f8ab58263d1c764d462fde",
+            "CurrentTokenPrice": 50.56,
+            "Currency": "USD",
+            "TokenTx": {
+                "1673658365": {
+                    "amount": 3.0,
+                    "cost": 50.56,
+                    "tokenPrice": 50.56,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x458b169d6d9d5d021d61013e3a01bf7dee29dd90": {
+            "FullName": "18438 Morang Ave, Detroit, MI 48205",
+            "ShortName": "18438 Morang",
+            "Symbol": "REALTOKEN-S-18438-MORANG-AVE-DETROIT-MI",
+            "ContractAddress": "0x458b169d6d9d5d021d61013e3a01bf7dee29dd90",
+            "CurrentTokenPrice": 50.24,
+            "Currency": "USD",
+            "TokenTx": {
+                "1673689690": {
+                    "amount": 2.0,
+                    "cost": 50.24,
+                    "tokenPrice": 50.24,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x2f5bb131614d6c2be8520e355752576ad55416b4": {
+            "FullName": "625 Virginia St, Toledo, OH 43620",
+            "ShortName": "625 Virginia",
+            "Symbol": "REALTOKEN-S-625-VIRGINIA-ST-TOLEDO-OH",
+            "ContractAddress": "0x2f5bb131614d6c2be8520e355752576ad55416b4",
+            "CurrentTokenPrice": 50.64,
+            "Currency": "USD",
+            "TokenTx": {
+                "1674515215": {
+                    "amount": 2.0,
+                    "cost": 50.64,
+                    "tokenPrice": 50.64,
+                    "currency": "USD"
+                }
+            }
+        },
+        "0x0c84153fdcafd65a4536c2d8d4856e6a6457fb21": {
+            "FullName": "10059 Britain St, Detroit, MI 48224",
+            "ShortName": "10059 Britain",
+            "Symbol": "REALTOKEN-S-10059-BRITAIN-ST-DETROIT-MI",
+            "ContractAddress": "0x0c84153fdcafd65a4536c2d8d4856e6a6457fb21",
+            "CurrentTokenPrice": 49.69,
+            "Currency": "USD",
+            "TokenTx": {
+                "1674518115": {
+                    "amount": 0.03225,
+                    "cost": 0.0,
+                    "tokenPrice": 49.69,
+                    "currency": "USD"
+                }
+            }
+        }
+    }
+}

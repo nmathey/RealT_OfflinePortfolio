@@ -1,0 +1,18 @@
+html {
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+.portfolio-layout {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+}
+
+.property-layout {
+  width: 33.33333%;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+
