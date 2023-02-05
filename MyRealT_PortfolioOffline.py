@@ -46,7 +46,7 @@ with open(MyRealT_Portfolio_Tx_Path) as json_file:
     except JSONDecodeError:
         print("Problem with portfolio Tx file!")
 
-LastSync = MyRealT_Portfolio['info']['last_sync']
+LastTxSync = MyRealT_Portfolio['info']['last_Tx']
 MyRealT_Portfolio['info']['last_sync'] = str(datetime.timestamp(Now_Time))
 MyTokenList_Gnosis_dict = {}
 MyRealT_Portfolio_valuation = 0.0
@@ -71,7 +71,7 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
             Tk_Costs = Tk_Costs + (Tx_Cost * Tx_Amount)
             Tk_Amounts = Tk_Amounts + Tx_Amount
 
-            if float(Tx_item) > float(LastSync):
+            if float(Tx_item) > float(LastTxSync):
                 if str(Tx_item) in MyRealT_Portfolio['info']['investment_history']:
                     print("Updating invest history")
                     New_Hist_Invest = float(MyRealT_Portfolio['info']['investment_history'][str(Tx_item)]) + (Tx_Cost * Tx_Amount)
@@ -132,31 +132,33 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
 MyRealT_Portfolio['info']['valuation_history'] = {i: MyRealT_Portfolio['info']['valuation_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
 MyRealT_Portfolio['info']['amount_history'] = {i: MyRealT_Portfolio['info']['amount_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
 MyRealT_Portfolio['info']['investment_history'] = {i: MyRealT_Portfolio['info']['investment_history'][i] for i in sorted(MyRealT_Portfolio['info']['valuation_history'])}
-if MyRealT_Portfolio['info']['last_Tx'] is None:
-    Invest_History_Acc = 0.0
-    Amount_History_Acc = 0.0
-    Valuation_History_Acc = 0.0
-else:
-    Invest_History_Acc = float(list(MyRealT_Portfolio['info']['investment_history'].values())[-1])
-    Amount_History_Acc = float(list(MyRealT_Portfolio['info']['amount_history'].values())[-1])
-    Valuation_History_Acc = float(list(MyRealT_Portfolio['info']['valuation_history'].values())[-1])
+
+Invest_History_Acc = 0.0
+Amount_History_Acc = 0.0
+Valuation_History_Acc = 0.0
+
+if MyRealT_Portfolio['info']['last_Tx'] is not None:
+    # Get last accumulated histories values to update with new ones
+    Invest_History_Acc = float(list(MyRealT_Portfolio['info']['investment_history'].values())[-2])
+    Amount_History_Acc = float(list(MyRealT_Portfolio['info']['amount_history'].values())[-2])
+    Valuation_History_Acc = float(list(MyRealT_Portfolio['info']['valuation_history'].values())[-2])
 
 for i in MyRealT_Portfolio['info']['valuation_history']:
-    if float(i) > float(LastSync):
+    if float(i) > float(LastTxSync):
         Valuation_History_Acc = Valuation_History_Acc + float(MyRealT_Portfolio['info']['valuation_history'][i])
         MyRealT_Portfolio['info']['valuation_history'][i] = Valuation_History_Acc
 
 for i in MyRealT_Portfolio['info']['investment_history']:
-    if float(i) > float(LastSync):
+    if float(i) > float(LastTxSync):
         Invest_History_Acc = Invest_History_Acc + float(MyRealT_Portfolio['info']['investment_history'][i])
         MyRealT_Portfolio['info']['investment_history'][i] = Invest_History_Acc
 
 for i in MyRealT_Portfolio['info']['amount_history']:
-    if float(i) > float(LastSync):
+    if float(i) > float(LastTxSync):
         Amount_History_Acc = Amount_History_Acc + float(MyRealT_Portfolio['info']['amount_history'][i])
         MyRealT_Portfolio['info']['amount_history'][i] = Amount_History_Acc
 
-# MyRealT_Portfolio['info']['last_Tx']=list(MyRealT_Portfolio['info']['amount_history'].keys())[-1]
+MyRealT_Portfolio['info']['last_Tx'] = list(MyRealT_Portfolio['info']['amount_history'].keys())[-1]
 
 # Graphing histories overtime
 df = pd.DataFrame()
