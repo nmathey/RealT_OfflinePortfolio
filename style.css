@@ -2,17 +2,57 @@ html {
   font-family: 'helvetica neue', helvetica, arial, sans-serif;
 }
 
-.portfolio-layout {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -0.25rem;
-    margin-right: -0.25rem;
+.portfolio-container {
+    margin: auto;
+    max-width: 1200px;
+    min-height: 100vh;
+    width: 100%;
+    overflow: scroll;
 }
 
-.property-layout {
-  width: 33.33333%;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead tr {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    height: 1px;
+}
+
+th {
+    font-weight: bold;
+    height: inherit;
+    padding: 0;
+}
+
+th:not(:first-of-type) {
+    border-left: 1px solid #ddd;
+}
+
+th button {
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    height: 100%;
+    margin: 0;
+    min-width: max-content;
+    padding: 0.5rem 1rem;
+    position: relative;
+    text-align: center
+    width: 100%;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
 }
 
 

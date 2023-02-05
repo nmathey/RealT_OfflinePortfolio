@@ -4,7 +4,21 @@
 	</head>
 	<body>
 		<iframe src="MyRealT_OfflinePortfolio.html" title="Evolution" style="border:none;height:400px;width:800px;"></iframe>
-		<portfolio class="portfolio-layout"></portfolio>
+		<div class="portfolio-container">
+			<table>
+				<thead>
+					<tr>
+						<th><button id="name">Property name</button></th>
+						<th><button id="token">Token owned</button></th>
+						<th><button id="value">Current valuation</button></th>
+						<th><button id="value">Invested value</button></th>
+						<th><button id="rented">Rented ratio</button></th>
+						<th><button id="rent">Net rent ratio</button></th>
+					</tr>
+				</thead>
+				<tbody id="portfolio"></tbody>
+			</table>
+		</div>
 		<script src="MyPortfolio.js">
 		</script>
 	</body>
