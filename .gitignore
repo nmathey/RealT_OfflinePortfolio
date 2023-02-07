@@ -1,6 +1,7 @@
 .idea/
 MyRealT_Portfolio_Tx.json
 MyRealT_PortfolioOffline.json
+RealT_OfflineTokenList.json
 MySecrets.py
 __pycache__/
 *.bak
