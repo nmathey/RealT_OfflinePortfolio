@@ -12,14 +12,7 @@ from MySecrets import MyRealT_API_Token
 
 MyRealT_Portfolio_Path = Path('MyRealT_PortfolioOffline.json')
 MyRealT_Portfolio_Tx_Path = Path('MyRealT_Portfolio_Tx.json')
-
-RealT_API_URI = 'https://api.realt.community/v1/token/'
-MyRealT_API_Header = {
-    'Accept': '*/*',
-    'X_AUTH_REALT_TOKEN': MyRealT_API_Token
-}
-
-RealT_TokenHistory_URI = 'https://www.cryptalloc.com/realtsoon/index.php?MODL=HIST&house='
+RealT_OfflineTokenList_Path = Path('RealT_OfflineTokenList.json')
 
 Now_Time = datetime.today()
 print(datetime.timestamp(Now_Time))
@@ -46,6 +39,13 @@ with open(MyRealT_Portfolio_Tx_Path) as json_file:
     except JSONDecodeError:
         print("Problem with portfolio Tx file!")
 
+RealT_OfflineTokenList_Path.touch(exist_ok=True)
+with open(RealT_OfflineTokenList_Path) as json_file:
+    try:
+        RealT_OfflineTokenList = json.load(json_file)
+    except JSONDecodeError:
+        print("Problem with RealT Offline Token List file!")
+
 LastTxSync = MyRealT_Portfolio['info']['last_Tx']
 MyRealT_Portfolio['info']['last_sync'] = str(datetime.timestamp(Now_Time))
 MyTokenList_Gnosis_dict = {}
@@ -53,15 +53,12 @@ MyRealT_Portfolio_valuation = 0.0
 MyRealT_Portfolio_invest = 0.0
 MyRealT_Portfolio_New_Hist = {}
 
-print("Updating offline portfolio as of today from Tx file, RealT API & Cryptalloc/realtsoon website")
+print("Updating offline portfolio as of today from Tx file")
 for Tk_item in MyRealT_Portfolio_Tx.get('data'):
     Tk_Costs = 0.0
     Tk_Amounts = 0.0
 
-    TokenInfo = requests.get(
-        RealT_API_URI + str(Tk_item),
-        headers=MyRealT_API_Header
-    ).json()
+    TokenInfo = RealT_OfflineTokenList['data'].get(str(Tk_item))
 
     for Tx_item in MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx']:
         if MyRealT_Portfolio_Tx['data'][str(Tk_item)]['TokenTx'][str(Tx_item)]['cost'] is not None:
@@ -95,21 +92,6 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
         else:
             exit("At least one transaction cost is missing")
 
-   # Getting updates from https://www.cryptalloc.com/realtsoon/
-    TokenHistInfo = requests.get(RealT_TokenHistory_URI + str(MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ShortName'])).content
-    currentRentedUnitsP = None
-    currentNetRentP = None
-    soup = BeautifulSoup(TokenHistInfo, "html.parser")
-    net_rent_p = soup.find('td', string='net_rent_p')
-    if net_rent_p.next_sibling.next_sibling is None:
-        currentNetRentP = net_rent_p.next_sibling.string
-    else:
-        currentNetRentP = net_rent_p.next_sibling.next_sibling.string
-    rented_units_p = soup.find('td', string='rented_units_p')
-    if rented_units_p.next_sibling.next_sibling is None:
-        currentRentedUnitsP = rented_units_p.next_sibling.string
-    else:
-        currentRentedUnitsP = rented_units_p.next_sibling.next_sibling.string
 
     #Generating updated Token position
     my_dict = {
@@ -121,9 +103,13 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
             'CurrentTokenPrice': TokenInfo['tokenPrice'],
             'CurrentValue': Tk_Amounts * float(TokenInfo['tokenPrice']),
             'InvestValue': Tk_Costs,
-            'CurrentRentedUnitsP': currentRentedUnitsP,
-            'CurrentNetRentP': currentNetRentP,
-            'Currency': TokenInfo['currency']
+            'CurrentRentedUnitsP': TokenInfo['rentedPercentage'],
+            'CurrentNetRentP': TokenInfo['annualPercentageYield'],
+            'netRentMonth': Tk_Amounts * TokenInfo['netRentMonthPerToken'],
+            'Currency': TokenInfo['currency'],
+            'RentStartDate': TokenInfo['rentStartDate'],
+            'marketplaceLink': TokenInfo['marketplaceLink'],
+            'imageLink': TokenInfo['imageLink']
         }
     }
     MyRealT_Portfolio['data'].update(my_dict)
