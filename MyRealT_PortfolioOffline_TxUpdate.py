@@ -49,8 +49,7 @@ if float(RealT_OfflineTokenList["info"]["last_sync"]) < datetime.timestamp(Now_T
                 item.get('uuid').lower(): {
                     'fullName': item.get('fullName'),
                     'shortName': item.get('shortName'),
-                    'xDaiContract': item.get('xDaiContract').lower(),
-                    'gnosisContract': item.get('gnosisContract').lower(),
+#                    'gnosisContract': item.get('gnosisContract').lower(),
                     'tokenPrice': item.get('tokenPrice'),
                     'netRentMonthPerToken': item.get('netRentMonthPerToken'),
                     'currency': item.get('currency'),
@@ -103,7 +102,7 @@ for item in MyTokenTxList_Gnosis.get('result'):
                     item.get('contractAddress'): {
                         "FullName": TokenInfo['fullName'],
                         "ShortName": TokenInfo['shortName'],
-                        'ContractAddress': TokenInfo['gnosisContract'],
+#                        'ContractAddress': TokenInfo['gnosisContract'],
                         'CurrentTokenPrice': TokenInfo['tokenPrice'],
                         'Currency': TokenInfo['currency'],
                         'TokenTx': {}

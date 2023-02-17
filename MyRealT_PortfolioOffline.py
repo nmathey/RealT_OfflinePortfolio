@@ -6,8 +6,6 @@ from datetime import datetime
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
-from bs4 import BeautifulSoup
-from MySecrets import MyRealT_API_Token
 
 
 MyRealT_Portfolio_Path = Path('MyRealT_PortfolioOffline.json')
@@ -25,7 +23,7 @@ with open(MyRealT_Portfolio_Path) as json_file:
         MyRealT_Portfolio = {
             "info": {
                 "last_sync": str(0),
-                "last_Tx": None,
+                "last_Tx": str(0),
                 "investment_history": {},
                 "valuation_history": {},
                 "amount_history": {}
@@ -94,11 +92,12 @@ for Tk_item in MyRealT_Portfolio_Tx.get('data'):
 
 
     #Generating updated Token position
+    print(str(Tk_item))
     my_dict = {
-        MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ContractAddress']: {
+        str(Tk_item): {
             'Fullname': MyRealT_Portfolio_Tx['data'][str(Tk_item)]['FullName'],
             'Shortname': MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ShortName'],
-            'ContractAddress': MyRealT_Portfolio_Tx['data'][str(Tk_item)]['ContractAddress'],
+            'ContractAddress': str(Tk_item),
             'CurrentBalance': Tk_Amounts,
             'CurrentTokenPrice': TokenInfo['tokenPrice'],
             'CurrentValue': Tk_Amounts * float(TokenInfo['tokenPrice']),

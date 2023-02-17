@@ -29,11 +29,11 @@ function populateProperties(jsonObj) {
             currentValuation.style.backgroundColor = "green";
         }
         investedValue.textContent = properties[property].InvestValue.toFixed(2);
-        currentRentedUnitP.textContent = (/\d+ ?/).exec(properties[property].CurrentRentedUnitsP) + '%';
-        if ((/\d+ ?/).exec(properties[property].CurrentRentedUnitsP) < 100) {
+        currentRentedUnitP.textContent = properties[property].CurrentRentedUnitsP.toFixed(2)*100 + '%';
+        if (properties[property].CurrentRentedUnitsP < 1) {
              currentRentedUnitP.style.backgroundColor = "red";
         }
-        currentNetRentP.textContent = properties[property].CurrentNetRentP;
+        currentNetRentP.textContent = properties[property].CurrentNetRentP.toFixed(2) + '%';
 
         myProperty.appendChild(name);
         myProperty.appendChild(tokenAmount);
